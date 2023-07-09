@@ -1,1 +1,16 @@
-<p>lista-tareas works!</p>
+<table class="table mt-4" border="2">
+    <tr class="text-center">
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+        <th>Opciones</th>
+    </tr>
+    <!-- Recorremos objeto a objeto del array con el ngFor --- of ---.
+    Con el ngStyle y el método de tareaCompletada cambiamos el fondo de la fila -->
+    <tr class="text-center py-4 tareaBackground" *ngFor="let tarea of tareasArray" [ngStyle]="{'background-color': tarea.backgroundColor}">
+        <td>{{tarea.titulo}}</td>
+        <td>{{tarea.descripcion}}</td>
+        <td><div class="btn btn-success" (click)="tareaCompletada(tarea)">Tarea Completada</div></td>
+        <td><div class="btn btn-danger" (click)="borrarTarea(tarea.titulo)">Eliminar</div></td>
+    </tr>
+</table>
